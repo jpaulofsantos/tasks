@@ -1,6 +1,17 @@
 package com.example.tasks.service.listener
 
 interface TaskListener {
-    fun onClick()
-    fun onDelete()
+
+    //editar task
+    fun onClick(id: Int)
+
+    //deletar task
+    fun onDelete(id: Int)
+
+    //completa task
+    fun onComplete(id: Int)
+
+    //desmarca task completa
+    fun onUndo(id: Int)
+
 }

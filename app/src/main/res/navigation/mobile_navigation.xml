@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.tasks.view.AllTasksFragment"
-        android:label="@string/menu_home"
+        android:label="Tarefas"
         tools:layout="@layout/fragment_all_tasks" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.tasks.view.NextTasksFragment"
-        android:label="@string/menu_gallery"
+        android:label="Próximos 7 dias"
         tools:layout="@layout/fragment_next_tasks" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.tasks.view.ExpiredTasksFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Expiradas"
         tools:layout="@layout/fragment_expired_tasks" />
 </navigation>

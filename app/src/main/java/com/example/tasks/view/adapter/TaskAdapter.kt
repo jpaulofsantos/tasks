@@ -17,17 +17,22 @@ class TaskAdapter: RecyclerView.Adapter<TaskViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        val inflater =LayoutInflater.from(parent.context)
-        val itemBinding =RowTaskListBinding.inflate(inflater, parent, false)
+        //infla o layout
+        val inflater = LayoutInflater.from(parent.context)
+        //binding da lista de tarefas (layout de cada elemento do recycler)
+        val itemBinding = RowTaskListBinding.inflate(inflater, parent, false)
+        //retorno da ViewHolder
         return TaskViewHolder(itemBinding, getListener)
 
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
+        //chama o viewholder.bind passando a tarefa
         holder.bind(listTasks[position])
     }
 
     override fun getItemCount(): Int {
+        //contagem da lista
         return listTasks.count()
     }
 
