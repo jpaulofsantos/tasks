@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_tasks"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_calendar_today_24"
             android:title="Tarefas" />
         <item
             android:id="@+id/nav_next"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_next_week_24"
             android:title="Próximos 7 dias" />
         <item
             android:id="@+id/nav_expiradas"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_wifi_tethering_off_24"
             android:title="Expiradas" />
         <item
             android:id="@+id/nav_sair"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_logout_24"
             android:title="Sair" />
     </group>
 </menu>

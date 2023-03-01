@@ -3,9 +3,9 @@ package com.example.tasks.service.repository
 import android.content.Context
 import android.content.SharedPreferences
 
-class SecurityPreferences(contex: Context) {
+class SecurityPreferences(context: Context) {
 
-    private val preferences: SharedPreferences =contex.getSharedPreferences("taskShared", Context.MODE_PRIVATE)
+    private val preferences: SharedPreferences =context.getSharedPreferences("taskShared", Context.MODE_PRIVATE)
 
     fun store(key: String, value: String) {
         preferences.edit().putString(key, value).apply()
@@ -16,7 +16,7 @@ class SecurityPreferences(contex: Context) {
     }
 
     fun get(key: String): String {
-        return preferences.getString(key, "") ?:""
+        return preferences.getString(key, "") ?: ""
     }
 
 }
