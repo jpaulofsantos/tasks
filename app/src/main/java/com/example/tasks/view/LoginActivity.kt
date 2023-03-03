@@ -24,17 +24,34 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnLogin.setOnClickListener(this)
         binding.textRegister.setOnClickListener(this)
 
+        //handleLogin()
+
         observe()
+
+        /*{
+    "name": "jp2",
+    "token": "lnXHwbYYKrE2g0l2wIhIHAbeoKYc7cZgb7cY92xd6Ow=",
+    "personKey": "v+RphF0wk9o+/8mMH79hOTLGlx8fQbVM84iEYeECFVU="
+}*/
 
     }
 
     override fun onClick(view: View) {
         if (view.id == R.id.btn_login) {
+            handleLogin()
 
         }
         if ((view.id == R.id.text_register)) {
 
         }
+    }
+
+    //activity - viewModel - userRepository - RetrofitClient - UserService
+    //pega os dados da activity e envia para viewModel realizar a tratativa
+    private fun handleLogin() {
+        val email = binding.editEmail.text.toString()
+        val password = binding.editPass.text.toString()
+        viewModel.login(email, password)
     }
 
     private fun observe() {

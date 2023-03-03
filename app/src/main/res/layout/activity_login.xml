@@ -11,7 +11,7 @@
         android:id="@+id/edit_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="E-mail"
+        android:hint="E-mail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="64dp"/>
@@ -20,7 +20,8 @@
         android:id="@+id/edit_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Senha"
+        android:hint="Senha"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_email"
         android:layout_marginTop="16dp"/>
