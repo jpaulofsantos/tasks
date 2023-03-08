@@ -8,7 +8,7 @@ import com.example.tasks.service.repository.UserRepository
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val userRepository = UserRepository()
+    private val userRepository = UserRepository(application.applicationContext)
 
     //chama UserRepository passando email e senha
     fun login(email: String, pass: String) {
@@ -20,7 +20,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             override fun onFailure(msg: String) {
 
             }
-
         })
     }
 
