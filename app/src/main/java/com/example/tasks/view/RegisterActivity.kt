@@ -1,8 +1,11 @@
 package com.example.tasks.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tasks.R
 import com.example.tasks.databinding.ActivityRegisterBinding
@@ -24,11 +27,31 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnCadastrar.setOnClickListener(this)
 
+        observe()
+
     }
 
     override fun onClick(view: View) {
         if (view.id == R.id.btn_cadastrar) {
-
+            register()
         }
+    }
+
+    private fun register() {
+        val name = binding.editName.text.toString()
+        val email = binding.editEmail.text.toString()
+        val pass = binding.editPassword.text.toString()
+
+        viewModel.create(name, email, pass)
+    }
+
+    private fun observe() {
+        viewModel.create.observe(this, Observer {
+            if (it.status()) {
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
+            } else {
+                Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

@@ -1,11 +1,15 @@
 package com.example.tasks.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tasks.R
 import com.example.tasks.databinding.ActivityLoginBinding
+import com.example.tasks.service.model.UserModel
 import com.example.tasks.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -42,6 +46,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         }
         if ((view.id == R.id.text_register)) {
+            createUser()
 
         }
     }
@@ -54,7 +59,18 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.login(email, password)
     }
 
-    private fun observe() {
+    private fun createUser() {
+        startActivity(Intent(this, RegisterActivity::class.java))
+    }
 
+    private fun observe() {
+        viewModel.login.observe(this) {
+            if (it.status()) {
+                startActivity(Intent(applicationContext, MainActivity::class.java))
+                //finish()
+            } else {
+                Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
