@@ -64,6 +64,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun observe() {
+
+        //escutando o login, que já está recebendo valores no header através do securityPreferences (metodo store)
+        //e com o interceptor do httpClient com o addHeaders, que recupera os dados
         viewModel.login.observe(this) {
             if (it.status()) {
                 startActivity(Intent(applicationContext, MainActivity::class.java))
