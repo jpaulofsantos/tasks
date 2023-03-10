@@ -1,6 +1,7 @@
 package com.example.tasks.viewmodel
 
 import android.app.Application
+import android.content.Intent
 import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
@@ -22,13 +23,16 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private val _login = MutableLiveData<ValidationModel>()
     val login: LiveData<ValidationModel> = _login
 
+    private val _logged = MutableLiveData<Boolean>()
+    val logged: LiveData<Boolean> = _logged
+
     //chama UserRepository passando email e senha
     fun login(email: String, pass: String) {
         userRepository.login(email, pass, object : APIListener<UserModel> {
             override fun onSucess(result: UserModel) {
                 sharedPreferences.store(TaskConstants.SHARED.TOKEN_KEY, result.token)
                 sharedPreferences.store(TaskConstants.SHARED.PERSON_KEY, result.personKey)
-                sharedPreferences.store(TaskConstants.SHARED.PERSON_KEY, result.name)
+                sharedPreferences.store(TaskConstants.SHARED.PERSON_NAME, result.name)
 
                 RetrofitClient.addHeader(result.token, result.personKey)
 
@@ -42,10 +46,13 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-
-
     fun checkLogin() {
+        val token = sharedPreferences.get(TaskConstants.SHARED.TOKEN_KEY)
+        val personKey = sharedPreferences.get(TaskConstants.SHARED.PERSON_KEY)
+
+        RetrofitClient.addHeader(token, personKey)
+
+        _logged.value = (token != "") && (personKey != "")
 
     }
-
 }

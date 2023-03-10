@@ -30,13 +30,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         //handleLogin()
 
-        observe()
+        viewModel.checkLogin()
 
-        /*{
-    "name": "jp2",
-    "token": "lnXHwbYYKrE2g0l2wIhIHAbeoKYc7cZgb7cY92xd6Ow=",
-    "personKey": "v+RphF0wk9o+/8mMH79hOTLGlx8fQbVM84iEYeECFVU="
-}*/
+        observe()
 
     }
 
@@ -75,5 +71,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
             }
         }
+
+        viewModel.logged.observe(this, Observer {
+            if (it) {
+                startActivity(Intent(applicationContext, MainActivity::class.java))
+                finish()
+            }
+        })
     }
 }
