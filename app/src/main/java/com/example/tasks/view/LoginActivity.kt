@@ -28,8 +28,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnLogin.setOnClickListener(this)
         binding.textRegister.setOnClickListener(this)
 
-        //handleLogin()
-
         viewModel.checkLogin()
 
         observe()
@@ -43,7 +41,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
         if ((view.id == R.id.text_register)) {
             createUser()
-
         }
     }
 

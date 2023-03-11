@@ -53,6 +53,5 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         RetrofitClient.addHeader(token, personKey)
 
         _logged.value = (token != "") && (personKey != "")
-
     }
 }

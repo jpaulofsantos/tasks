@@ -1,7 +1,16 @@
 package com.example.tasks.service.model
 
-import androidx.room.Entity
+import com.google.gson.annotations.SerializedName
 
-@Entity
+
 class TaskModel {
+
+    @SerializedName("Id")
+    var id: Int = 0
+
+    @SerializedName("PriorityId")
+    var priorityId: Int = 0
+
+
+
 }
