@@ -69,16 +69,13 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             //PriorityService faz a chamada no endpoint Priority
             priorityRepository.listar(object : APIListener<List<PriorityModel>> {
                 override fun onSucess(result: List<PriorityModel>) {
-                    val s = ""
-
+                    priorityRepository.save(result)
                 }
 
                 override fun onFailure(msg: String) {
                     val s = ""
                 }
-
             })
-
         }
     }
 }

@@ -39,4 +39,9 @@ class PriorityRepository(val context: Context) {
     private fun failResponse(str: String) : String {
         return Gson().fromJson(str, String::class.java)
     }
+
+    fun save(listaPriorities: List<PriorityModel>) {
+        taskDB.clear()
+        taskDB.save(listaPriorities)
+    }
 }

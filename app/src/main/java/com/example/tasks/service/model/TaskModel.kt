@@ -2,7 +2,6 @@ package com.example.tasks.service.model
 
 import com.google.gson.annotations.SerializedName
 
-
 class TaskModel {
 
     @SerializedName("Id")
@@ -11,6 +10,13 @@ class TaskModel {
     @SerializedName("PriorityId")
     var priorityId: Int = 0
 
+    @SerializedName("Description")
+    var description: String = ""
 
+    @SerializedName("DueDate")
+    var dueDate: String = "2019-06-25"
+
+    @SerializedName("Complete")
+    var complete: Boolean = true
 
 }
