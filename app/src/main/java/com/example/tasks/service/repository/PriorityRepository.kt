@@ -1,4 +1,4 @@
-package com.example.tasks.service.repository.remote
+package com.example.tasks.service.repository
 
 import android.content.Context
 import com.example.tasks.R
@@ -6,6 +6,8 @@ import com.example.tasks.service.constants.TaskConstants
 import com.example.tasks.service.listener.APIListener
 import com.example.tasks.service.model.PriorityModel
 import com.example.tasks.service.repository.local.TaskDataBase
+import com.example.tasks.service.repository.remote.PriorityService
+import com.example.tasks.service.repository.remote.RetrofitClient
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,5 +45,10 @@ class PriorityRepository(val context: Context) {
     fun save(listaPriorities: List<PriorityModel>) {
         taskDB.clear()
         taskDB.save(listaPriorities)
+    }
+
+    //chamada no banco de dados
+    fun list(): List<PriorityModel> {
+        return taskDB.list()
     }
 }

@@ -1,9 +1,6 @@
 package com.example.tasks.viewmodel
 
 import android.app.Application
-import android.content.Intent
-import android.content.SharedPreferences
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,7 +11,7 @@ import com.example.tasks.service.model.UserModel
 import com.example.tasks.service.model.ValidationModel
 import com.example.tasks.service.repository.SecurityPreferences
 import com.example.tasks.service.repository.UserRepository
-import com.example.tasks.service.repository.remote.PriorityRepository
+import com.example.tasks.service.repository.PriorityRepository
 import com.example.tasks.service.repository.remote.RetrofitClient
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
