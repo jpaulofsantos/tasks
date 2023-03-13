@@ -4,15 +4,12 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.tasks.service.constants.TaskConstants
 import com.example.tasks.service.listener.APIListener
 import com.example.tasks.service.model.PriorityModel
 import com.example.tasks.service.model.TaskModel
-import com.example.tasks.service.model.ValidationModel
 import com.example.tasks.service.repository.PriorityRepository
 import com.example.tasks.service.repository.SecurityPreferences
-import com.example.tasks.service.repository.local.TaskDataBase
-import com.example.tasks.service.repository.remote.TaskRepository
+import com.example.tasks.service.repository.TaskRepository
 
 class TaskFormViewModel(application: Application) : AndroidViewModel(application) {
 

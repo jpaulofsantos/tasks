@@ -13,7 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class UserRepository(val context: Context) {
+class UserRepository(val context: Context): BaseRepository() {
 
     //chama a instancia do retrofit e acessa os metodos de UserService
     private val remote = RetrofitClient.getService(UserService::class.java)
@@ -43,14 +43,7 @@ class UserRepository(val context: Context) {
         val call = remote.create(name, email, pass)
         call.enqueue(object : Callback<UserModel> {
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                val s = ""
-                if (response.code() == TaskConstants.HTTP.SUCCESS) {
-                    response.body()?.let {
-                        listener.onSucess(it)
-                    }
-                } else {
-                    listener.onFailure(failResponse(response.errorBody()!!.toString()))
-                }
+                handleResponse(response, listener)
             }
 
             override fun onFailure(call: Call<UserModel>, t: Throwable) {
@@ -58,9 +51,5 @@ class UserRepository(val context: Context) {
                 listener.onFailure(context.getString(R.string.ERROR_UNEXPECTED))
             }
         })
-    }
-
-    private fun failResponse(str: String) : String {
-        return Gson().fromJson(str, String::class.java)
     }
 }

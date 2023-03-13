@@ -1,6 +1,7 @@
 package com.example.tasks.view
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -47,6 +48,8 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener, DatePickerDi
             handleDate()
         } else if (view.id == R.id.btn_salvar) {
             handleSave()
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
