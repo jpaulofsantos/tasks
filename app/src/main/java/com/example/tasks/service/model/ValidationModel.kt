@@ -1,6 +1,6 @@
 package com.example.tasks.service.model
 
-class ValidationModel(msg: String ="") {
+class ValidationModel(msg: String = "") {
 
     private var status: Boolean = true
     private var _message = msg

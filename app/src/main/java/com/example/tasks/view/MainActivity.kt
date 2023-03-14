@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.appBarMain.fab.setOnClickListener {
             startActivity(Intent(applicationContext, TaskFormActivity::class.java))
-            finish()
+            //finish()
         }
 
         setupNavigation()
