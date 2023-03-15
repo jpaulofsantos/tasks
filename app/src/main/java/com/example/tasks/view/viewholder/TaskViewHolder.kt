@@ -12,11 +12,12 @@ import com.example.tasks.service.model.TaskModel
 class TaskViewHolder(private val itemBinding: RowTaskListBinding, val listener: TaskListener) : RecyclerView.ViewHolder(itemBinding.root) {
 
     fun bind(task: TaskModel) {
-        itemBinding.textDescricao.text = ""
-        itemBinding.textPrioridade.text = ""
-        itemBinding.textDataLimite.text = ""
+        itemBinding.textDescricao.text = task.description
+        itemBinding.textPrioridade.text = task.priorityId.toString()
+        itemBinding.textDataLimite.text = task.dueDate
 
         //itemBinding.textPrioridade.setOnLongClickListener { listener.onClick(task.id) }
+        //itemBinding.imageTask.setOnClickListener {  }
 
         itemBinding.textDescricao.setOnLongClickListener {
             AlertDialog.Builder(itemView.context)

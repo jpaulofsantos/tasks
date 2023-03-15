@@ -27,10 +27,6 @@ class ExpiredTasksFragment : Fragment() {
         _binding = FragmentExpiredTasksBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textExpiredTasks
-        viewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
         return root
     }
 

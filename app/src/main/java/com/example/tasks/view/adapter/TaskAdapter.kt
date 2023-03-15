@@ -16,6 +16,7 @@ class TaskAdapter: RecyclerView.Adapter<TaskViewHolder>() {
     private lateinit var getListener: TaskListener
 
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         //infla o layout
         val inflater = LayoutInflater.from(parent.context)
@@ -26,6 +27,7 @@ class TaskAdapter: RecyclerView.Adapter<TaskViewHolder>() {
 
     }
 
+    //pega o layout da linha + informação da tela e faz a junção
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         //chama o viewholder.bind passando a tarefa
         holder.bind(listTasks[position])
@@ -34,6 +36,12 @@ class TaskAdapter: RecyclerView.Adapter<TaskViewHolder>() {
     override fun getItemCount(): Int {
         //contagem da lista
         return listTasks.count()
+    }
+
+    fun updateTasks(list: List<TaskModel>) {
+        listTasks = list
+        //indica para o adapter que houve uma mudança na lista
+        notifyDataSetChanged()
     }
 
     fun getListener(listener: TaskListener) {
