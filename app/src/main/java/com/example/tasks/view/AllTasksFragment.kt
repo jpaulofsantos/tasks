@@ -32,8 +32,6 @@ class AllTasksFragment : Fragment() {
         binding.recyclerAllTasks.layoutManager = LinearLayoutManager(context)
         binding.recyclerAllTasks.adapter = adapter
 
-        viewModel.listTasks()
-
         val listener = object : TaskListener {
             override fun onClick(id: Int) {
             }
@@ -59,6 +57,12 @@ class AllTasksFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.listTasks()
+
     }
 
     private fun observe() {
