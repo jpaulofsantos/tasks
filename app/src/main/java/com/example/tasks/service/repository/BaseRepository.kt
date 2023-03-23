@@ -18,7 +18,7 @@ open class BaseRepository {
                 listener.onSucess(it)
             }
         } else {
-            listener.onFailure(failResponse(response.errorBody()!!.toString()))
+            listener.onFailure(failResponse(response.errorBody()!!.string()))
         }
     }
 }

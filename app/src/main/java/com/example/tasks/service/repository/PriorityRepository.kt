@@ -41,4 +41,8 @@ class PriorityRepository(val context: Context): BaseRepository() {
     fun list(): List<PriorityModel> {
         return taskDB.list()
     }
+
+    fun getDescription(id: Int): String {
+        return taskDB.getDescription(id)
+    }
 }
